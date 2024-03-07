@@ -1,6 +1,6 @@
 {
-    "name": "belarabi_quizapp",
-    "short_name": "belarabi_quizapp",
+    "name": "quiz_app_with_eman",
+    "short_name": "quiz_app_with_eman",
     "start_url": ".",
     "display": "standalone",
     "background_color": "#0175C2",

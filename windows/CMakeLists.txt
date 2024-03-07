@@ -1,10 +1,10 @@
 # Project-level configuration.
 cmake_minimum_required(VERSION 3.14)
-project(belarabi_quizapp LANGUAGES CXX)
+project(quiz_app_with_eman LANGUAGES CXX)
 
 # The name of the executable created for the application. Change this to change
 # the on-disk name of your application.
-set(BINARY_NAME "belarabi_quizapp")
+set(BINARY_NAME "quiz_app_with_eman")
 
 # Explicitly opt in to modern CMake behaviors to avoid warnings with recent
 # versions of CMake.
