@@ -1,8 +1,11 @@
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 import 'package:quiz_app_with_eman/app/routes.dart';
+import 'package:quiz_app_with_eman/features/firestore_config/firestore_cubit.dart';
+import 'package:quiz_app_with_eman/features/firestore_config/firestore_repository.dart';
 import 'package:quiz_app_with_eman/features/profile_managment/cubits/user_details_cubit.dart';
 import 'package:quiz_app_with_eman/features/profile_managment/profile_managment_profile.dart';
 import 'package:quiz_app_with_eman/features/settings/settings_cubit.dart';
@@ -12,6 +15,7 @@ import 'package:quiz_app_with_eman/features/systemConfig/system_config_repositor
 import 'package:quiz_app_with_eman/utils/constants/constants.dart';
 
 import '../features/settings/settings_local_data_source.dart';
+import '../firebase_options.dart';
 import '../ui/styles/theme/app_theme.dart';
 import '../ui/styles/theme/theme_cubit.dart';
 
@@ -19,6 +23,10 @@ Future<Widget> intializeApp() async {
   //initilize Package before running material app
 
   await Hive.initFlutter();
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp(
+    options: DefaultFirebaseOptions.currentPlatform,
+  );
   await Hive.openBox(settingBox);
   await Hive.openBox(userDetailsBox);
 
@@ -57,6 +65,11 @@ class _MyAppState extends State<MyApp> {
               ProfileManagmentRepository(),
             ),
           ),
+          BlocProvider(
+            create: (_) => FirestoreCubit(
+              FirestoreRepository(),
+            ),
+          )
         ],
         child: Builder(builder: (context) {
           final currentTheme = context.watch<ThemeCubit>().state.appTheme;

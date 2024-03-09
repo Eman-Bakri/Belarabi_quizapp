@@ -88,7 +88,7 @@ class AnimatedAppBarWidget extends StatelessWidget {
             ),
         SizedBox(
           width: 10,
-        )
+        ),
       ],
     );
   }

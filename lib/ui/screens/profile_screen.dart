@@ -63,65 +63,71 @@ class _ProfileScreenState extends State<ProfileScreen>
           selectedAvatar ??= userProfile.profileAvatar;
 
           final size = MediaQuery.of(context).size;
-          return Column(
-            crossAxisAlignment: CrossAxisAlignment.center,
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              SizedBox(
-                height: size.height * .025,
-              ),
-              Center(
-                child: _buildCurrentProfilePictureContainer(
-                    image: selectedAvatar ?? ""),
-              ),
-              const SizedBox(height: 15.0),
-              Center(
-                child: Text(
-                  "Select Avatar",
-                  style: TextStyle(
-                    color: Theme.of(context).colorScheme.onTertiary,
-                    fontSize: 16,
-                    fontWeight: FontWeight.bold,
+          return SingleChildScrollView(
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.center,
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                SizedBox(
+                  // height: size.height * .025,
+                  height: size.height * .15,
+                ),
+                Center(
+                  child: _buildCurrentProfilePictureContainer(
+                      image: selectedAvatar ?? ""),
+                ),
+                const SizedBox(height: 15.0),
+                Center(
+                  child: Text(
+                    "Select Avatar",
+                    style: TextStyle(
+                      color: Theme.of(context).colorScheme.onTertiary,
+                      fontSize: 16,
+                      fontWeight: FontWeight.bold,
+                    ),
                   ),
                 ),
-              ),
-              Padding(
-                padding: EdgeInsets.symmetric(
-                  horizontal: size.width * .04,
+                Padding(
+                  padding: EdgeInsets.symmetric(
+                    horizontal: size.width * .04,
+                  ),
+                  child: _buildDefaultAvtarImages(),
                 ),
-                child: _buildDefaultAvtarImages(),
-              ),
-              Padding(
-                padding: EdgeInsets.symmetric(horizontal: 15.0),
-                child: Divider(color: Colors.blueGrey[200]),
-              ),
-              SizedBox(
-                height: size.height * .02,
-              ),
-              Padding(
-                padding: EdgeInsets.symmetric(horizontal: size.width * .04),
-                child: _buildNameTextFieldContainer(),
-              ),
-              SizedBox(
-                height: size.height * .05,
-              ),
-              Padding(
-                padding: EdgeInsets.symmetric(horizontal: size.width * .04),
-                child: _buildContinueButton(_animationController),
-              ),
-              SizedBox(
-                height: 50,
-              )
-            ],
-          )
-              .animate(
-                autoPlay: false,
-                controller: _animationController,
-              )
-              .blurXY(
-                  begin: 0, end: 25, duration: 600.ms, curve: Curves.easeInOut)
-              .scaleXY(begin: 1, end: 0.6)
-              .fadeOut(begin: 1);
+                Padding(
+                  padding: EdgeInsets.symmetric(horizontal: 15.0),
+                  child: Divider(color: Colors.blueGrey[200]),
+                ),
+                SizedBox(
+                  height: size.height * .02,
+                ),
+                Padding(
+                  padding: EdgeInsets.symmetric(horizontal: size.width * .04),
+                  child: _buildNameTextFieldContainer(),
+                ),
+                SizedBox(
+                  height: size.height * .05,
+                ),
+                Padding(
+                  padding: EdgeInsets.symmetric(horizontal: size.width * .04),
+                  child: _buildContinueButton(_animationController),
+                ),
+                SizedBox(
+                  height: 50,
+                )
+              ],
+            )
+                .animate(
+                  autoPlay: false,
+                  controller: _animationController,
+                )
+                .blurXY(
+                    begin: 0,
+                    end: 25,
+                    duration: 600.ms,
+                    curve: Curves.easeInOut)
+                .scaleXY(begin: 1, end: 0.6)
+                .fadeOut(begin: 1),
+          );
         },
         listener: ((context, state) {}),
       ),

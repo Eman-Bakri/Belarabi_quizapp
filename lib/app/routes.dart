@@ -1,4 +1,5 @@
 import 'package:go_router/go_router.dart';
+import 'package:quiz_app_with_eman/ui/screens/quiz_screen.dart';
 
 import '../ui/screens/home_screen.dart';
 import '../ui/screens/onboarding_screen.dart';
@@ -6,10 +7,11 @@ import '../ui/screens/profile_screen.dart';
 import '../ui/screens/splash_screen.dart';
 
 class PageName {
-  static const homeRoute = "/";
+  static const homeRoute = "/home";
   static const splashRoute = "/splash";
   static const introSliderRoute = "/introSlider";
   static const profileRoute = "/profile";
+  static const quizRoute = "quiz";
 }
 
 class Routes {
@@ -22,9 +24,29 @@ class Routes {
         builder: (context, state) => const SplashScreen(),
       ),
       GoRoute(
-        path: PageName.homeRoute,
-        builder: (context, state) => const HomeScreen(),
-      ),
+          path: PageName.homeRoute,
+          builder: (context, state) => const HomeScreen(),
+          routes: [
+            GoRoute(
+                path: "quiz",
+                builder: (context, state) {
+                  Map<String, String?> args =
+                      state.extra as Map<String, String?>;
+                  return QuizScreen(
+                    language: args["language"],
+                    category: args["category"],
+                    subCategory: args["subcatgeory"],
+                    level: args["level"],
+                  );
+                }
+                // builder: (context, state) => QuizScreen(
+                //   language: state.pathParameters['language'],
+                //   category: state.pathParameters['category'],
+                //   subCategory: state.pathParameters['subcatgeory'],
+                //   level: state.pathParameters['level'],
+                // ),
+                )
+          ]),
       GoRoute(
         path: PageName.introSliderRoute,
         builder: (context, state) => const OnBoardingScreen(),

@@ -1,6 +1,6 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android">
     <application
-        android:label="quiz_app_with_eman"
+        android:label="Bel3arabi"
         android:name="${applicationName}"
         android:icon="@mipmap/ic_launcher">
         <activity

@@ -27,6 +27,8 @@ class ProfileManagmentRepository {
     await profileManagementLocalDataSource.setName(userProfile.name!);
     await profileManagementLocalDataSource.setCoins(userProfile.coins!);
     await profileManagementLocalDataSource
+        .setAllTimeRank(userProfile.allTimeRank!);
+    await profileManagementLocalDataSource
         .setProfileAvatar(userProfile.profileAvatar!);
   }
 
@@ -36,6 +38,7 @@ class ProfileManagmentRepository {
         name: _profileManagementLocalDataSource.getName(),
         coins: _profileManagementLocalDataSource.getCoins(),
         profileAvatar: _profileManagementLocalDataSource.getProfileAvatar(),
+        allTimeRank: _profileManagementLocalDataSource.getAllTimeRank(),
       );
       print(user);
       return user;

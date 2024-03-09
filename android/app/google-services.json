@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "960666777716",
+    "project_id": "bel3arabiquizapp-fcb56",
+    "storage_bucket": "bel3arabiquizapp-fcb56.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:960666777716:android:8fdbaf7b82d19a781b7921",
+        "android_client_info": {
+          "package_name": "com.quiz.bel3arabi"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAX-zBdmyD2-o9-KVfMaAq0292OTprCekI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
