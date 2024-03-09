@@ -7,11 +7,15 @@ class ProfileManagementLocalDataSource {
   }
 
   String getCoins() {
-    return Hive.box(userDetailsBox).get(coinsBoxKey, defaultValue: "");
+    return Hive.box(userDetailsBox).get(coinsBoxKey, defaultValue: "0");
   }
 
   String getProfileAvatar() {
     return Hive.box(userDetailsBox).get(profileAvatarBoxKey, defaultValue: "");
+  }
+
+  String getAllTimeRank() {
+    return Hive.box(userDetailsBox).get(allTimeRankKey, defaultValue: "0");
   }
 
   Future<void> setName(String name) async {
@@ -20,6 +24,10 @@ class ProfileManagementLocalDataSource {
 
   Future<void> setCoins(String coins) async {
     Hive.box(userDetailsBox).put(coinsBoxKey, coins);
+  }
+
+  Future<void> setAllTimeRank(String rank) async {
+    Hive.box(userDetailsBox).put(allTimeRankKey, rank);
   }
 
   Future<void> setProfileAvatar(String profileAvatar) async {

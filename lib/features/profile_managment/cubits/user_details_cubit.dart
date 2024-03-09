@@ -51,6 +51,7 @@ class UserDetailsCubit extends Cubit<UserDetailsState> {
     String? name,
     String? profileAvatar,
     String? coins,
+    String? allTimeRank,
   }) {
     if (state is UserDetailsFetchSuccess) {
       final oldUserDetails = (state as UserDetailsFetchSuccess).userProfile;
@@ -58,6 +59,7 @@ class UserDetailsCubit extends Cubit<UserDetailsState> {
         name: name,
         profileAvatar: profileAvatar,
         coins: coins,
+        allTimeRank: allTimeRank,
       );
       _profileManagmentRepository.setUserDetailsLocally(userDetails);
       emit(UserDetailsFetchSuccess(userProfile: userDetails));
