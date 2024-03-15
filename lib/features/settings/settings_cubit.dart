@@ -1,3 +1,4 @@
+import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:quiz_app_with_eman/features/settings/settings_model.dart';
 import 'package:quiz_app_with_eman/features/settings/settings_repository.dart';
@@ -23,6 +24,15 @@ class SettingsCubit extends Cubit<SettingState> {
 
   SettingsModel getSettings() {
     return state.settingsModel!;
+  }
+
+  void changeLanguage(String code, BuildContext context) {
+    _settingsRepository.changeLanguageCode(code, context);
+    emit(
+      SettingState(
+        settingsModel: state.settingsModel!.copyWith(languageCode: code),
+      ),
+    );
   }
 
   void changeShowIntroSlider() {

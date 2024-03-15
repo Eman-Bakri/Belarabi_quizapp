@@ -57,6 +57,7 @@ class _ProfileScreenState extends State<ProfileScreen>
               showErrorImage: true,
             );
           }
+
           UserProfile userProfile =
               (state as UserDetailsFetchSuccess).userProfile;
           nameController ??= TextEditingController(text: userProfile.name);

@@ -1,4 +1,5 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_animate/flutter_animate.dart';
 
@@ -15,11 +16,17 @@ class AnimatedNameWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    // context.setLocale(Locale('en'));
+    print("language is " + context.locale.toString());
     return Text(
-      "Hello, \n$name 👋 ",
+      "hello_message",
       maxLines: 2,
-      style: Theme.of(context).textTheme.headlineSmall,
+      style: Theme.of(context)
+          .textTheme
+          .headlineSmall!
+          .copyWith(color: Theme.of(context).colorScheme.onTertiary),
     )
+        .tr(args: [name])
         .animate()
         .slideX(
           begin: 0.2,

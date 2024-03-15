@@ -52,7 +52,11 @@ class AnimatedAppBarWidget extends StatelessWidget {
                   curve: Curves.easeInOutSine)
               .then(delay: avatarWaitingDuration)
               .scaleXY(begin: 3, end: 1)
-              .slide(begin: const Offset(4, 6), end: Offset.zero),
+              .slide(
+                  begin: UiUtils.isArabic(context)
+                      ? const Offset(-4, 6)
+                      : const Offset(4, 6),
+                  end: Offset.zero),
         ),
         const SizedBox(
           width: 25,
@@ -71,7 +75,26 @@ class AnimatedAppBarWidget extends StatelessWidget {
             borderRadius: BorderRadius.circular(10.0),
           ),
           child: IconButton(
-            onPressed: () {},
+            onPressed: () async {
+              // final setting = context.read<SettingsCubit>();
+              // setting.changeLanguage(
+              //     setting.getSettings().languageCode == 'en' ? 'ar' : 'en',
+              //     context);
+              context.go('/home/settings');
+              // final response = await http.get(Uri.parse(
+              //     "https://apicarto.ign.fr/api/codes-postaux/communes/05700"));
+
+              // if (response.statusCode == 200) {
+              //   final content = json.decode(response.body);
+              //   print(content);
+
+              //   content.forEach((element) {
+              //     print(element["libelleAcheminement"]);
+              //   });
+              // }
+
+              // print(content[0]["libelleAcheminement"]);
+            },
             icon: SvgPicture.asset(
               UiUtils.getImagePath("settings.svg"),
               color: Colors.white,
@@ -80,7 +103,7 @@ class AnimatedAppBarWidget extends StatelessWidget {
             ),
           ),
         ).animate().slideX(
-              begin: 4,
+              begin: UiUtils.isArabic(context) ? -4 : 4,
               end: 0,
               duration: settingPlayDuration,
               delay: settingDelayDuration,

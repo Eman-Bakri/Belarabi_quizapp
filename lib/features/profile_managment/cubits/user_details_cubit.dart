@@ -65,4 +65,8 @@ class UserDetailsCubit extends Cubit<UserDetailsState> {
       emit(UserDetailsFetchSuccess(userProfile: userDetails));
     }
   }
+
+  UserProfile getUserProfile() => state is UserDetailsFetchSuccess
+      ? (state as UserDetailsFetchSuccess).userProfile
+      : UserProfile();
 }

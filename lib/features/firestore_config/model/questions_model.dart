@@ -1,30 +1,45 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'dart:convert';
 
+import 'options_model.dart';
+
 class Question {
   final String qst;
-  final Map<String, dynamic> options;
+  final List<Options> options;
   final String answer;
+  final String? imageUrl;
 
-  Question({required this.qst, required this.options, required this.answer});
+  Question({
+    required this.qst,
+    required this.options,
+    required this.answer,
+    this.imageUrl,
+  });
 
   Map<String, dynamic> toMap() {
     return <String, dynamic>{
-      'question': qst,
-      'options': options,
+      'qst': qst,
+      'options': options.map((x) => x.toMap()).toList(),
       'answer': answer,
+      'imageUrl': imageUrl,
     };
   }
 
   factory Question.fromMap(Map<String, dynamic> map) {
-    // print("question json -------");
-    return Question(
+    final jsonMap = map['options'] as Map<String, dynamic>;
+
+    final List<Options> listQuestion = [];
+    jsonMap.forEach((key, value) {
+      listQuestion.add(Options(id: key, title: value));
+    });
+
+    final question = Question(
       qst: map['question'] as String,
-      options: Map<String, dynamic>.from(
-        (map['options'] as Map<String, dynamic>),
-      ),
+      options: listQuestion,
       answer: map['answer'] as String,
+      imageUrl: map['imageUrl'] != null ? map['imageUrl'] as String : null,
     );
+    return question;
   }
 
   String toJson() => json.encode(toMap());

@@ -14,7 +14,7 @@ const Color levelLockedColor = Color(0xffe8e8e8);
 const Color onPrimaryColor = Color(0xffFBF4F8); //
 const Color onSecondaryColor = Color(0xffEFD8E7);
 
-const Color darkPrimaryColor = Color(0xffA93A6F);
+const Color darkPrimaryColor = Colors.amber;
 const Color darkSecondaryColor = Color(0xffff9abc);
 const Color darkBackgroundColor = Color(0xff294261);
 const Color darkPageBackgroundColor = Color(0xff233354);

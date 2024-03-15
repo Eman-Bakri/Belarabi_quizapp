@@ -17,13 +17,13 @@ class FirestoreRepository {
   FirestoreRepository._instance();
 
   Future<List<Question>> getQuestions({
-    required String language,
+    required bool isArabic,
     required String category,
     required String subCategory,
     required String level,
   }) async {
     return _firestoreRemoteDataSource.fetchAllQuestions(
-        language: language,
+        isArabic: isArabic,
         category: category,
         subCategory: subCategory,
         level: level);

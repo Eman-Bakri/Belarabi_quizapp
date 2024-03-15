@@ -43,6 +43,12 @@ dependencies:
   flutter_svg: ^2.0.10+1
   firebase_core: ^2.24.2
   cloud_firestore: ^4.14.0
+  flutter_tex: ^4.0.6
+  cached_network_image: ^3.3.1
+  http: ^1.2.1
+  just_audio: ^0.9.36
+  lottie: ^3.1.0
+  easy_localization: ^3.0.5
 
 dev_dependencies:
   flutter_test:
@@ -68,9 +74,13 @@ flutter:
   # To add assets to your application, add an assets section, like this:
   assets:
     - assets/files/
+    - assets/sounds/
     - assets/images/
+    - assets/animations/
     - assets/images/profile/
     - assets/images/countries/
+    - assets/translations/
+    - assets/images/categories/
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware

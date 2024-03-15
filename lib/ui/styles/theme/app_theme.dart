@@ -53,7 +53,7 @@ final appThemeData = {
   ),
   AppTheme.dark: ThemeData(
     primaryTextTheme: GoogleFonts.nunitoTextTheme(),
-    textTheme: GoogleFonts.nunitoTextTheme(),
+    textTheme: GoogleFonts.nunitoTextTheme().copyWith(),
     fontFamily: GoogleFonts.nunito().fontFamily,
     shadowColor: darkPrimaryColor.withOpacity(0.25),
     brightness: Brightness.dark,

@@ -1,4 +1,6 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:quiz_app_with_eman/utils/constants/fonts.dart';
 
@@ -35,4 +37,21 @@ class UiUtils {
       ),
     );
   }
+
+  static void vibrate() {
+    HapticFeedback.heavyImpact();
+    HapticFeedback.vibrate();
+  }
+
+  static const profileHeightBreakPointResultScreen = 355.0;
+
+  static bool isArabic(BuildContext context) {
+    // return Locale(context.read<SettingsCubit>().getSettings().languageCode) ==
+    //     const Locale('ar');
+    return context.locale == const Locale('ar');
+  }
+
+  static const bottomSheetTopRadius = BorderRadius.vertical(
+    top: Radius.circular(20),
+  );
 }

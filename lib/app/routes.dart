@@ -1,5 +1,7 @@
 import 'package:go_router/go_router.dart';
 import 'package:quiz_app_with_eman/ui/screens/quiz_screen.dart';
+import 'package:quiz_app_with_eman/ui/screens/result_screen.dart';
+import 'package:quiz_app_with_eman/ui/screens/settings_screen.dart';
 
 import '../ui/screens/home_screen.dart';
 import '../ui/screens/onboarding_screen.dart';
@@ -12,6 +14,8 @@ class PageName {
   static const introSliderRoute = "/introSlider";
   static const profileRoute = "/profile";
   static const quizRoute = "quiz";
+  static const resultRoute = "result";
+  static const settingsRoute = "settings";
 }
 
 class Routes {
@@ -28,7 +32,7 @@ class Routes {
           builder: (context, state) => const HomeScreen(),
           routes: [
             GoRoute(
-                path: "quiz",
+                path: PageName.quizRoute,
                 builder: (context, state) {
                   Map<String, String?> args =
                       state.extra as Map<String, String?>;
@@ -38,14 +42,29 @@ class Routes {
                     subCategory: args["subcatgeory"],
                     level: args["level"],
                   );
-                }
-                // builder: (context, state) => QuizScreen(
-                //   language: state.pathParameters['language'],
-                //   category: state.pathParameters['category'],
-                //   subCategory: state.pathParameters['subcatgeory'],
-                //   level: state.pathParameters['level'],
-                // ),
-                )
+                }),
+            GoRoute(
+              path: PageName.resultRoute,
+              builder: (context, state) {
+                Map<String, String?> args = state.extra as Map<String, String?>;
+                return ResultScreen(
+                  numCorrectAnswer: int.parse(args["numCorrectAnswer"] ?? "0"),
+                );
+                // Map<String, String?> args = state.extra as Map<String, String?>;
+                // return QuizScreen(
+                //   language: args["language"],
+                //   category: args["category"],
+                //   subCategory: args["subcatgeory"],
+                //   level: args["level"],
+                // );
+              },
+            ),
+            GoRoute(
+              path: PageName.settingsRoute,
+              builder: (context, state) {
+                return const SettingScreen();
+              },
+            ),
           ]),
       GoRoute(
         path: PageName.introSliderRoute,

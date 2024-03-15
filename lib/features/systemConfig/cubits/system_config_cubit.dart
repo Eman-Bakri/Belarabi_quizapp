@@ -52,6 +52,7 @@ class SystemConfigCubit extends Cubit<SystemConfigState> {
           .getImagesFromFile("assets/files/defaultProfileImages.json");
 
       // await Future.delayed(Duration(seconds: 3));
+
       emit(
         SystemConfigFetchSuccess(
           systemConfigModel: SystemConfigModel(),
@@ -65,4 +66,10 @@ class SystemConfigCubit extends Cubit<SystemConfigState> {
       emit(SystemConfigFetchFailure(errorCode: e.toString()));
     }
   }
+
+  int getQuizTime() => state is SystemConfigFetchSuccess
+      ? int.parse(
+          (state as SystemConfigFetchSuccess).systemConfigModel.quizTimer ??
+              "30")
+      : 0;
 }

@@ -2,6 +2,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_animate/flutter_animate.dart';
 import 'package:go_router/go_router.dart';
+import 'package:quiz_app_with_eman/utils/ui_utils.dart';
 
 class CategoryCards extends StatefulWidget {
   final List<Map<String, String>> content;
@@ -33,10 +34,9 @@ class _CategoryCardsState extends State<CategoryCards> {
             children: [
               Text(
                 widget.categoryName,
-                style: Theme.of(context)
-                    .textTheme
-                    .bodyMedium!
-                    .copyWith(fontWeight: FontWeight.bold),
+                style: Theme.of(context).textTheme.bodyMedium!.copyWith(
+                    fontWeight: FontWeight.bold,
+                    color: Theme.of(context).colorScheme.onTertiary),
               ),
               Spacer(),
               Text(
@@ -52,14 +52,14 @@ class _CategoryCardsState extends State<CategoryCards> {
           height: 10,
         ),
         SizedBox(
-          height: 130,
+          height: 140,
           child: ListView(
             scrollDirection: Axis.horizontal,
             children: widget.content
                 .map((name) => GestureDetector(
                       onTap: () {
                         context.go("/home/quiz", extra: {
-                          "language": "english",
+                          "language": UiUtils.isArabic(context) ? 'ar' : 'en',
                           "category": widget.categoryName,
                           "subcatgeory": name['name'],
                           "level": "level 1"
@@ -67,18 +67,19 @@ class _CategoryCardsState extends State<CategoryCards> {
                         // "/home/quiz/english/${widget.categoryName}/${name['name']}/level1");
                       },
                       child: Padding(
-                          padding: const EdgeInsets.symmetric(horizontal: 8.0),
+                          padding: const EdgeInsets.symmetric(
+                              horizontal: 8.0, vertical: 5),
                           child: Container(
                             alignment: Alignment.center,
                             width: 150,
                             padding: EdgeInsets.all(5.0),
                             margin: EdgeInsets.all(5),
                             decoration: BoxDecoration(
-                              color: Colors.white,
+                              color: Theme.of(context).colorScheme.background,
                               borderRadius: BorderRadius.circular(20),
                               boxShadow: [
                                 BoxShadow(
-                                  color: Colors.amber.withOpacity(0.5),
+                                  color: Colors.amber.withOpacity(0.7),
                                   spreadRadius: 1,
                                   blurRadius: 7,
                                   offset: Offset(
@@ -105,7 +106,11 @@ class _CategoryCardsState extends State<CategoryCards> {
                                   style: Theme.of(context)
                                       .textTheme
                                       .bodyMedium!
-                                      .copyWith(fontSize: 14),
+                                      .copyWith(
+                                          fontSize: 14,
+                                          color: Theme.of(context)
+                                              .colorScheme
+                                              .onTertiary),
                                 ),
                               ],
                             ),
