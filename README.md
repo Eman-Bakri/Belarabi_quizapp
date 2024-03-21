@@ -43,4 +43,4 @@ Eman Bakri [LinkedIn](https://www.linkedin.com/in/eman-bakri-1764b9152) - [Githu
 Ilyas Elfilah [LinkedIn](https://www.linkedin.com/in/ilyass-dev) - [Github](https://github.com/flutterilo)
 
 ## Acknowledgements
-[Holberton School ](holbertonschool.com)
+[Holberton School ](holbertonschool.com) (Staff & peers).
