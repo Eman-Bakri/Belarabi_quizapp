@@ -26,16 +26,20 @@ The app will be available soon for download in Play Store and other platforms.
 
 ## UI Screens
 Entering user details, choose avatar & user name.
+
 ![screen-img04](https://github.com/Eman-Bakri/Belarabi_quizapp/assets/41126091/5af97564-448e-491b-836f-faf483251d1d)
 
 Home page including different categories of dialects quizzes and subcategories.
+
 ![screen-img02](https://github.com/Eman-Bakri/Belarabi_quizapp/assets/41126091/a8f65cab-d3a8-4080-910c-9d5542f1c8aa)
 
 Quiz Screen, including the question with 4 options & a timer.
+
 ![screen-img05](https://github.com/Eman-Bakri/Belarabi_quizapp/assets/41126091/217cab2c-a54b-4c14-8e04-683bda4172d8)
 
 ## Authors
 Eman Bakri [LinkedIn](https://www.linkedin.com/in/eman-bakri-1764b9152) - [Github](https://github.com/Eman-Bakri)
+
 Ilyas Elfilah [LinkedIn](https://www.linkedin.com/in/ilyass-dev) - [Github](https://github.com/flutterilo)
 
 ## Acknowledgements
